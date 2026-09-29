@@ -13,4 +13,6 @@ import java.util.List;
 public interface SpringDataJpaArticleRepository
         extends JpaRepository<Article, Integer>, JpaSpecificationExecutor<Article> {
     List<Article> findByName(String name);
+    List<Article> findByNameStartingWith(String name);
+
 }

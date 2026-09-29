@@ -49,6 +49,13 @@ public class ArticleServiceImpl implements ArticleService {
     }
 
     @Override
+    public List<ArticleDTO> getArticlesStartingWithName(String prefix) {
+        return articleRepository.findByNameStartingWith(prefix).stream()
+                .map(this::convertArticleToArticleDTO)
+                .toList();
+    }
+
+    @Override
     public ArticleDTO saveNewArticle(ArticleDTO article) {
         return convertArticleToArticleDTO(articleRepository.save(convertArticleDtoToArticle(article)));
         //return convertArticleToArticleDTO(articleRepository.saveNewArticle(convertArticleDtoToArticle(article)));

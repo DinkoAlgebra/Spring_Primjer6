@@ -11,9 +11,11 @@ import java.util.Optional;
 public interface ArticleService {
     List<ArticleDTO> getAllArticles();
     List<ArticleDTO> getArticlesByName(String articleName);
+    List<ArticleDTO> getArticlesStartingWithName(String articleName);
     ArticleDTO saveNewArticle(ArticleDTO article);
     List<ArticleDTO> filterByParameters(SearchArticleDTO searchArticleDTO);
     Optional<ArticleDTO> updateArticle(ArticleDTO articleDTO, Integer id);
     boolean articleByIdExists(Integer id);
     boolean deleteArticleById(Integer id);
+
 }

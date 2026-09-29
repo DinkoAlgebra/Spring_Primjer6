@@ -26,6 +26,10 @@ public class ArticleController {
     public ResponseEntity<List<ArticleDTO>> filterArticlesByName(@PathVariable String articleName) {
         return ResponseEntity.ok(articleService.getArticlesByName(articleName).stream().toList());
     }
+    @GetMapping("/starts-with/{prefix}")
+    public ResponseEntity<List<ArticleDTO>> getArticlesStartingWith(@PathVariable String prefix) {
+        return ResponseEntity.ok(articleService.getArticlesStartingWithName(prefix));
+    }
 
     @PostMapping("/new")
     public ResponseEntity<?> saveNewArticle(@Valid @RequestBody ArticleDTO articleDTO) {
